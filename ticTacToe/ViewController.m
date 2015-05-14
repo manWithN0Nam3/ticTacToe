@@ -46,6 +46,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//#2
 -(void)findLabelUsingPoint: (CGPoint)sender{
 
 
@@ -55,22 +57,32 @@
 
     for (UILabel *label in self.labelArray) {
         if(CGRectContainsPoint(label.frame, sender)){
-        if ([self.whichPlayerLabel.text isEqualToString:@"Player 1"]) {
+
+
+
+            if ([self.whichPlayerLabel.text isEqualToString:@"Player 1"]) {
             label.text = @"X";
             label.textColor = [UIColor blueColor];
             self.whichPlayerLabel.text = @"O";
-        } else {
+            }
+
+            else {
             label.text = @"O";
             label.textColor = [UIColor redColor];
             self.whichPlayerLabel.text = @"X";
-            
-
-        }
+            }
 
         }
     }
     }
+//
+//-(NSString *)whoWon {
+//
+//
+//
+//}
 
+//#1
 
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)sender{
 
