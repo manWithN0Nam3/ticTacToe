@@ -32,15 +32,13 @@
 @implementation ViewController
 
 
--(void)makeArray{
-
-    self.labelArray = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo,self.labelThree, self.labelFour,self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
-}
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+
+
+    self.labelArray = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo,self.labelThree, self.labelFour,self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
 
     self.whichPlayerLabel.text = @"Player 1";
 
