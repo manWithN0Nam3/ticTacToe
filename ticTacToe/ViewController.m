@@ -54,15 +54,23 @@
 
 
     for (UILabel *label in self.labelArray) {
-        //if(CGRectContainsPoint(self.labelArray[i].frame, sender)){
+        if(CGRectContainsPoint(label.frame, sender)){
         if ([self.whichPlayerLabel.text isEqualToString:@"Player 1"]) {
-            label.text = @"something";
+            label.text = @"X";
+            label.textColor = [UIColor blueColor];
+            self.whichPlayerLabel.text = @"O";
         } else {
+            label.text = @"O";
+            label.textColor = [UIColor redColor];
+            self.whichPlayerLabel.text = @"X";
+            
 
         }
 
+        }
     }
-}
+    }
+
 
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)sender{
 
