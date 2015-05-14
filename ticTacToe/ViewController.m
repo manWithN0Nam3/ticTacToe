@@ -48,6 +48,15 @@
 -(void)findLabelUsingPoint: (CGPoint)sender{
 
 
+    for (int i=0; i<self.labelArray.count; i++) {
+        if(CGRectContainsPoint(self.labelArray.frame, sender))
+            if ([self.whichPlayerLabel.text  isEqual: @"Player 1"]) {
+                self.labelArray.text [i] 
+            } else {
+                <#statements#>
+            }
+    }
+
 
 
 
