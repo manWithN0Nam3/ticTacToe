@@ -35,6 +35,7 @@
     self.labelArray = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo,self.labelThree, self.labelFour,self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -48,18 +49,19 @@
 -(void)findLabelUsingPoint: (CGPoint)sender{
 
 
-    for (int i=0; i<self.labelArray.count; i++) {
-        if(CGRectContainsPoint(self.labelArray.frame, sender))
-            if ([self.whichPlayerLabel.text  isEqual: @"Player 1"]) {
-                self.labelArray.text [i] 
-            } else {
-                <#statements#>
-            }
+
+
+
+
+    for (UILabel *label in self.labelArray) {
+        //if(CGRectContainsPoint(self.labelArray[i].frame, sender)){
+        if ([self.whichPlayerLabel.text isEqualToString:@"Player 1"]) {
+            label.text = @"something";
+        } else {
+
+        }
+
     }
-
-
-
-
 }
 
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)sender{
