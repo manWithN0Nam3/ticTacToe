@@ -23,6 +23,8 @@
 
 @property NSArray *labelArray;
 
+@property UILabel *returnLabel;
+
 
 
 @end
@@ -39,6 +41,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    self.whichPlayerLabel.text = @"Player 1";
+
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,8 +54,8 @@
 }
 
 
-//#2
--(void)findLabelUsingPoint: (CGPoint)sender{
+//#2 this method runs second
+-(UILabel *)findLabelUsingPoint: (CGPoint)sender{
 
 
 
@@ -58,23 +65,33 @@
     for (UILabel *label in self.labelArray) {
         if(CGRectContainsPoint(label.frame, sender)){
 
-
-
-            if ([self.whichPlayerLabel.text isEqualToString:@"Player 1"]) {
-            label.text = @"X";
-            label.textColor = [UIColor blueColor];
-            self.whichPlayerLabel.text = @"O";
-            }
-
-            else {
-            label.text = @"O";
-            label.textColor = [UIColor redColor];
-            self.whichPlayerLabel.text = @"X";
-            }
-
+            self.returnLabel = [[UILabel alloc] init];
+            self.returnLabel = label;
         }
     }
+
+
+    if ([self.whichPlayerLabel.text isEqualToString:@"Player 1"]) {
+        self.returnLabel.text = @"X";
+
+        self.returnLabel.textColor = [UIColor blueColor];
+        self.whichPlayerLabel.text = @"O";
     }
+
+    else {
+        self.returnLabel.text = @"O";
+        self.returnLabel.textColor = [UIColor redColor];
+        self.whichPlayerLabel.text = @"X";
+    }
+
+    NSLog(@"%@",self.returnLabel.text);
+
+    return self.returnLabel;
+
+
+    }
+
+
 //
 //-(NSString *)whoWon {
 //
@@ -82,15 +99,17 @@
 //
 //}
 
-//#1
+//#1 this method runs first
 
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)sender{
 
-
+    NSLog(@"I've been used!");
     CGPoint point = [sender locationInView:self.view];
-
+    NSLog(@"%@",NSStringFromCGPoint(point));
 
     [self findLabelUsingPoint:point];
+
+
 
 
 
